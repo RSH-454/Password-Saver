@@ -11,7 +11,11 @@ def SaveNew():
         f.write("Account: " + Account + " " + "Password: " + Password)  
 
 def ViewSaved():
-    print()
+    print('Enter the name of the account you want to view: ')
+    Account = input()
+    with open(Account, 'r') as f:
+        content = f.read()
+        print(content)
 
 def Exit():
  SystemExit

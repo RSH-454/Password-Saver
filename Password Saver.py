@@ -22,10 +22,13 @@ def Search():
             break
         else:
           print("Account not found.")
+
+#This function allows the user to view all previously saved data.
 def ViewAll():
     with open(FileName, 'r') as f:
         content = f.read()
         print(content)          
+
 #This function checks if the file exists or if it is empty.
 def CheckPassword(Path):
     return (not os.path.exists(Path)) or os.path.getsize(Path) == 0
@@ -65,6 +68,6 @@ while True:
     elif Option == '3':
         ViewAll()
         input('Press enter to return to menu...\n')
-        
+
     elif Option == '4':
         break 

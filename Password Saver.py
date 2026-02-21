@@ -1,5 +1,6 @@
 import os
 FileName = 'SavedData.txt'
+
 #This function allows the user to save new data. 
 def SaveData():
     print('Enter name of the account: ')
@@ -10,7 +11,7 @@ def SaveData():
         f.write("Account: " + Account + " " + "Password: " + Password + "\n")
 
 #This function allows the user to view previously saved data. 
-def ViewData():
+def Search():
     print('Enter the name of the account you want to view: ')
     Account = input()
     with open(FileName, 'r') as f:
@@ -21,7 +22,10 @@ def ViewData():
             break
         else:
           print("Account not found.")
-          
+def ViewAll():
+    with open(FileName, 'r') as f:
+        content = f.read()
+        print(content)          
 #This function checks if the file exists or if it is empty.
 def CheckPassword(Path):
     return (not os.path.exists(Path)) or os.path.getsize(Path) == 0
@@ -48,13 +52,19 @@ Access()
 print('[PASSWORD SAVER]')
 input('Press enter to continue...\n')
 while True:
-    Option = input('Choose option: \n 1. Save new password \n 2. View saved passwords \n 3. Exit\nOption: ')
-
+    Option = input('Choose option: \n 1. Save new password \n 2. Search for a password \n 3. View all passwords\n 4. Exit\nOption: ')
+ 
     if Option == '1':
         SaveData()
         input('Press enter to return to menu...\n')
+
     elif Option == '2':
-        ViewData()
+        Search()
         input('Press enter to return to menu...\n')
+
     elif Option == '3':
-        break
+        ViewAll()
+        input('Press enter to return to menu...\n')
+        
+    elif Option == '4':
+        break 

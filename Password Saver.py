@@ -2,7 +2,7 @@ import os
 FileName = 'SavedData.txt'
 
 #This function allows the user to save new data. 
-def SaveData():
+def Save():
     print('Enter name of the account: ')
     Account = input()
     print('Enter password: ')
@@ -61,10 +61,10 @@ Access()
 print('[PASSWORD SAVER]')
 input('Press enter to continue...\n')
 while True:
-    Option = input('Choose option: \n 1. Save new password \n 2. Search for a password \n 3. View all passwords\n 4. Exit\nOption: ')
+    Option = input('Choose option: \n 1. Save \n 2. Search \n 3. View all \n 4. Exit\nOption: ')
  
     if Option == '1':
-        SaveData()
+        Save()
         input('Press enter to return to menu...\n')
 
     elif Option == '2':

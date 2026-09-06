@@ -24,7 +24,7 @@ def header():
    ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝        ╚═╝  
 
                PASSWORD MANAGER
-               ver 0.4.0-beta.1
+               ver 0.4.1-beta.1
 """)
 
 
@@ -192,37 +192,38 @@ access()
 input("Press enter to continue...\n")
 
 while True:
-    option = input(
-        "Choose option: \n"
-        " 1. Save \n"
-        " 2. Search \n"
-        " 3. View all \n"
-        " 4. Reset Password \n"
-        " 5. Exit \n"
-        "Option: "
+    option = input("""
+Choose option: 
+ 1. Password Manangement
+ 2. Reset Password
+ 3. Exit 
+Option: """
     )
 
-    if option == "1":
-        save()
-        input("Press enter to return to menu...\n")
+    if option == "2":
+     reset_password()
+     input("Press enter to return to menu...\n")
 
-    elif option == "2":
-        search()
-        input("Press enter to return to menu...\n")
-
-    elif option == "3":
-        view_all()
-        input("Press enter to return to menu...\n")
-
-    elif option == "4":
-        reset_password()
-        input("Press enter to return to menu...\n")
-
-    elif option == "5":
-        print("Goodbye.")
+    if option == "3":
         clear = "cls" if os.name == "nt" else "clear"
         os.system(clear)
         break
+
+    if option == "1":
+        sub_opt = input("""
+Choose option: 
+ 1. Save new password
+ 2. Search for password
+ 3. View all saved passwords
+Option: 
+  """) 
+    if sub_opt == "1":  
+        save()
+    elif sub_opt == "2":    
+        search()
+    elif sub_opt == "3":    
+        view_all()
+        input("Press enter to return to menu...\n")
 
     else:
         print("Invalid option.")

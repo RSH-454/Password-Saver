@@ -125,11 +125,38 @@ def save():
         "account": account,
         "password": encrypted_password
     })
-
     save_vault(vault)
+    print("Password saved successfully.")
 
-    print("Account saved successfully.")
+def update():
+    account = input("Enter the name of the account you want to update: ").strip()
 
+    vault = load_vault()
+
+    for entry in vault:
+        if entry["account"] == account:
+            new_password = getpass.getpass("Enter new password: ").strip()
+            entry["password"] = encrypt_password(new_password)
+        else: 
+            print("Account not found.")
+            return
+        
+    save_vault(vault)
+    print("Account updated successfully.")
+
+def delete():
+    account = input("Enter the name of the account you want to delete: ").strip()
+
+    vault = load_vault()
+
+    for entry in vault:
+        if entry["account"] == account:
+            vault.remove(entry)
+            save_vault(vault)
+            print("Account deleted successfully.")
+            return
+
+    print("Account not found.")
 
 def search():
     account = input("Enter the name of the account you want to view: ").strip()
@@ -214,7 +241,9 @@ Option: """
 Choose option: 
  1. Save new password
  2. Search for password
- 3. View all saved passwords
+ 3. Update password
+ 4. Delete password
+ 5. View all saved passwords
 Option: 
   """) 
     if sub_opt == "1":  
@@ -222,6 +251,10 @@ Option:
     elif sub_opt == "2":    
         search()
     elif sub_opt == "3":    
+        update()
+    elif sub_opt == "4":    
+        delete()
+    elif sub_opt == "5":    
         view_all()
         input("Press enter to return to menu...\n")
 

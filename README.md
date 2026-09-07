@@ -2,7 +2,7 @@
 [![Python](https://img.shields.io/badge/Python-3.x-blue)](https://www.python.org/downloads/)
 [![Platform](https://img.shields.io/badge/Platform-CLI-lightgrey)](https://en.wikipedia.org/wiki/Command-line_interface)
 [![Status](https://img.shields.io/badge/Status-Active-green)](#)
-[![Version](https://img.shields.io/badge/version-0.3.1--alpha.2-red)](#)
+[![Version](https://img.shields.io/badge/version-0.5.1--alpha.2-red)](#)
 ## 📌 Overview
 CRYPT is a lightweight command-line Python application that is used for basic credential storage and simple access control that can be used on Windows, Linux, and MacOS.
 
